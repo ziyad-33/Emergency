@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,9 +18,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         val emergencies =arrayListOf<Emergency>()
-        emergencies.add(Emergency(R.drawable.a , "child rescue" , "16000"))
-        emergencies.add(Emergency(R.drawable.d , "police" , "16000"))
-        emergencies.add(Emergency(R.drawable.b, " fire " , "16000"))
-        emergencies.add(Emergency(R.drawable.c , "Ambulance" , "16000"))
+        emergencies.add(Emergency(R.drawable.c , "Child rescue" , "16000"))
+        emergencies.add(Emergency(R.drawable.p , "Police" , "122"))
+        emergencies.add(Emergency(R.drawable.f, " Fire " , "180"))
+        emergencies.add(Emergency(R.drawable.ampulance , "Ambulance" , "123"))
+        val adapter = EmergencyAdapter(this , emergencies)
+        val rv : RecyclerView = findViewById(R.id.rv)
+        rv.adapter=adapter
     }
 }
